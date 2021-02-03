@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Clase de Call, Apply, Bind</h1>
+
+    <ul>
+        <li>
+            <button class="yes">yes</button>
+            <button class="yes">yes</button>
+            <button class="yes">yes</button>
+        </li>
+    </ul>
+
+    <script>
+        //Establece This usando 'call'
+        function saludar() {
+            console.log(`Hola soy ${this.name} ${this.apellido}`);
+        }
+        const oliver = {
+            name: 'oliver',
+            apellido: 'Charry'
+        }
+        saludar.call(oliver);
+        //Establece This usando 'call y argumentos en una funcion'
+        function caminar(metros, direccion) {
+            console.log(`${this.name} ${this.apellido} camina ${metros}m a la direccion ${direccion}`);
+        }
+        const oli = {
+            name: 'oliver',
+            apellido: 'Charry'
+        }
+
+        caminar.call(oliver, 23, 'oeste');
+        //Establece This usando 'apply' y argumentos en una funcion
+        caminar.apply(oli, [300, 'sur']);
+        //Establecer This en una nueva funcion usando 'bind' nueva funcion
+        const daniel = {
+            name: 'daniel',
+            apellido: 'Sanches'
+        }
+        const saludaDniel = saludar.bind(daniel);
+        saludaDniel()
+            //Establecer This en una nueva funcion usando 'bind' nueva funcion con argumentos
+        const danielCamina = caminar.bind(daniel, 900, 'norte');
+        danielCamina();
+    </script>
+</body>
+
+</html>

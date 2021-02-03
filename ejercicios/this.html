@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Clase de This</h1>
+
+
+    <script>
+        // this en el scope global, se asigan a windons
+        console.log(this);
+        // this en el scope de una función
+        function thisScopeFunction() {
+            console.log(this);
+        }
+        thisScopeFunction();
+        // this en el scope de una función con strict mode
+        function thisScopeFunction() {
+            "use strict"
+            console.log(this);
+        }
+        thisScopeFunction();
+        // this en el contexto de un objeto con una función
+        const person = {
+            nombre: 'Oliver',
+            saludar: function() {
+                console.log(`Hola soy ${this.nombre}`);
+            }
+        }
+        person.saludar();
+        // this en el contexto de un objeto fuera de una función
+        const accion = person.saludar;
+        accion();
+        // this en el contexto de una clase 
+        function Person(name) {
+            this.name = name;
+        }
+
+        Person.prototype.saludar = function() {
+            console.log(`Hola ${this.name}`);
+        }
+
+        let oliver = new Person('Oliver');
+        oliver.saludar();
+    </script>
+</body>
+
+</html>

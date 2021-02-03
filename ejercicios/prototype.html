@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Prototype</h1>
+
+    <script>
+        //*********objeto conmun y corriente
+        // ++ 1 ++
+        // const persona = {
+        //     name: 'Oiver',
+        // }
+
+        // persona.saludar = function() {
+        //     console.log(`Hola soy ${this.name}`)
+        // }
+
+        // persona.saludar()
+        // ++ 2 ++
+        // const persona2 = {
+        //     name: 'Juan',
+        // }
+
+        // persona2.saludar = function() {
+        //     console.log(`Hola soy ${this.name}`)
+        // }
+
+        // persona2.saludar()
+        // ******************* mejorando el objeto anterior
+        // function Hero(name) {
+        //     const hero = {
+        //         name
+        //     }
+
+        //     hero.saludar = function() {
+        //         console.log(`Hola soy ${this.name}`)
+        //     }
+
+        //     return hero;
+        // }
+
+        // const oliver = Hero('Oliver');
+        // oliver.saludar();
+        // const andrea = Hero('Andrea');
+        // andrea.saludar();
+        //********************** mejorando lo anterior evitanto crear la misma funcion
+        // const heroMethos = {
+        //     saludar: function() {
+        //         console.log(`Hola soy ${this.name} the best`)
+        //     }
+        // }
+
+        // function Hero(name) {
+        //     const hero = {
+        //         name
+        //     }
+
+        //     hero.saludar = heroMethos.saludar;
+
+        //     return hero;
+        // }
+
+        // const oliver = Hero('Oliver');
+        // oliver.saludar();
+        // const andrea = Hero('Andrea');
+        // andrea.saludar();
+        //************objet.create
+        // const heroMethos = {
+        //     saludar: function() {
+        //         console.log(`Hola soy ${this.name} the best`)
+        //     }
+        // }
+
+        // function Hero(name) {
+        //     const hero = Object.create(heroMethos);
+        //     hero.name = name;
+        //     return hero;
+        // }
+
+        // const oliver = Hero('Oliver');
+        // oliver.saludar();
+        // const andrea = Hero('Andrea');
+        // andrea.saludar();
+        // ********************metodos de hero dentro de Hero
+
+        // function Hero(name) {
+        //     const hero = Object.create(Hero.prototype);
+        //     console.log(hero)
+        //     hero.name = name;
+        //     return hero;
+        // }
+
+        // Hero.prototype.saludar = function() {
+        //     console.log(`Hola soy ${this.name} the best proto`)
+        // }
+
+        // const oliver = Hero('Oliver');
+        // oliver.saludar();
+        // const andrea = Hero('Andrea');
+        // andrea.saludar();
+        //******** new es un atajo (azucar sintantica) para llevar Hero.prototype al objeto
+        // function Hero(name) {
+        //     // const hero = Object.create(Hero.prototype); por defecto new lo hace
+        //     this.name = name;
+        //     // return hero; por defecto new lo hace
+        // }
+
+        // Hero.prototype.saludar = function() {
+        //     console.log(`Hola soy ${this.name} the best new`)
+        // }
+
+        // const oliver = new Hero('Oliver');
+        // oliver.saludar();
+        // const andrea = new Hero('Andrea');
+        // andrea.saludar();
+    </script>
+</body>
+
+</html>

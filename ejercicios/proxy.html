@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script src="https://unpkg.com/fast-levenshtein@2.0.6/levenshtein.js"></script>
+    <h1>Proxy</h1>
+
+    <script>
+        const target = {
+            red: 'Rojo',
+            green: 'Verde',
+            blue: 'Azul'
+        }
+
+        const handler = {
+            get(targe, propiedad) {
+                if (propiedad in targe) {
+                    return targe[propiedad]
+                }
+                const suggestions = Object.keys(targe).find(key => {
+                    return Levenshtein.get(key, propiedad) <= 3
+                });
+                if (suggestions) {
+                    console.log(`La propiedad ${propiedad} no se encontro. Quisiste decir ${suggestions}`)
+                }
+
+                return targe[propiedad];
+            }
+        }
+        const proxy = new Proxy(target, handler);
+    </script>
+</body>
+
+</html>
